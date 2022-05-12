@@ -22,7 +22,10 @@ export class PostViewComponent implements OnInit, OnDestroy {
   constructor(private postService: PostService, private ingredientService: IngredientService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.routeSub = this.route.params.subscribe(params => {
+    this.post =this.route.snapshot.data['post'];
+    this.getIngredients();
+    /* Object.assign(new Post(), this.route.snapshot.data.post) as FormUpdateSpedizioneIn; */
+/*     this.routeSub = this.route.params.subscribe(params => {
       this.idPost=params["id"];
       let promise = this.postService.getPromisePostDocument(this.idPost!);
       promise.then((response) => {
@@ -31,7 +34,7 @@ export class PostViewComponent implements OnInit, OnDestroy {
       }, function (error) {
         console.log(error); // Failure
       });
-    });
+    }); */
     
   }
   getIngredients() {

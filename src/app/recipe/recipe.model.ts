@@ -13,5 +13,5 @@ export interface Recipe {
     steps?:string[];
     userId?:string;
     rating?:number;
-    choosed:boolean
+    choosed?:boolean;
 }

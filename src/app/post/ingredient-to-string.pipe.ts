@@ -4,11 +4,16 @@ import { Ingredient } from "../ingredients/ingredient.models";
 
 @Pipe({ name: 'ingredientToString' })
 export class IngredientToStringPipe implements PipeTransform {
-    transform(value: Ingredient[]): string[] {
+    transform(value: Ingredient[],name=false): string[] {
         
         let result: string[]=[];
         value.forEach(obj => { 
-            result.push(obj.$id!);
+            if(name){
+                result.push(obj.name!);
+            }else{
+                result.push(obj.$id!);
+
+            }
         });
         return result;
     }

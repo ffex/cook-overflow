@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Query } from "appwrite";
 import { AppService } from "../app.service";
 import { Ingredient } from "../ingredients/ingredient.models";
 import { IngredientService } from "../ingredients/ingredient.service";
@@ -20,22 +21,38 @@ export class RecipeService {
     getPromiseSave(value:Recipe){
         return this.appService.getAppWriteSdk().database.createDocument(this.collID, 'unique()', value);
     }
+    getPromiseListDocumentEquals(values:string[]){
+        return this.appService.getAppWriteSdk().database.listDocuments(this.collID,[
+            Query.equal('$id', values)]);
+    }
+    getRecipes(ids: string[] | undefined) {
+        if (!ids) {
+            return null;
+        }
+        if (ids.length > 100) {
+            ids = ids.slice(0, 100);
+            //TODO prendere anche quelli degli altri.
+        }
+        return this.getPromiseListDocumentEquals(ids!);
+    }
 
     async ConvertRecipeToSteps(recipe: Recipe): Promise<Step[]> {
         let result: Step[] = [];
         let pipe = new IngredientToStringPipe();
         let ingredients: Ingredient[] = [];
         ingredients = await this.ingredientService.getIngrediets(recipe.ingredients)!.then((response) => {
+            
             return response.documents;
         }, function (error) {
             return [];
         });
+        console.log(ingredients);
         //ingredients
         result.push(
             {
                 numStep: -1,
                 title: "Ingredients",
-                ingredients: pipe.transform(ingredients)
+                ingredients: pipe.transform(ingredients,true)
             }
         );
         result.push(

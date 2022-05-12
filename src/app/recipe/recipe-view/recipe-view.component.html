@@ -1,1 +1,5 @@
-<p>recipe-view works!</p>
+<div class="row" *ngFor="let item of recipes; let i = index">
+    <div class="col-12 mb-1">
+        <app-recipe-view-item [recipe]="item"></app-recipe-view-item>
+    </div>
+</div>

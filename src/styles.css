@@ -7,3 +7,18 @@
 body{
     background-color: #f4fafe !important;
 }
+a{
+    color: #fdc106;
+    text-decoration: none !important;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-height:50px;
+    min-height:50px!important;
+    background-color: #F8F9FA;
+    color: rgb(40, 24, 24);
+    text-align: center;
+ }

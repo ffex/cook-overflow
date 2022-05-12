@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CreateComponent } from './post/create/create.component';
+import { PostResolveService } from './post/post-resolve.service';
 import { PostViewComponent } from './post/post-view/post-view.component';
 
 const routes: Routes = [
@@ -10,7 +11,11 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'post/new', component: CreateComponent },
-  { path: 'post/view/:id', component: PostViewComponent },
+  {
+    path: 'post/view/:id', component: PostViewComponent, resolve: {
+      post: PostResolveService,
+    },
+  },
 ];
 
 @NgModule({
