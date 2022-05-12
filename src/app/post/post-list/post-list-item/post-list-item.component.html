@@ -1,0 +1,40 @@
+<p-card>
+    <div class="row">
+        <div class="col-2">
+            <div class="row border-bottom border-end">
+                <div class="col-12 text-center">
+                    Recipes
+                </div>
+                <div class="col-12 text-center">
+                    {{post.recipeCount}}
+                </div>
+            </div>
+        </div>
+        <div class="col-10 ">
+            <h5><a [routerLink]="['/post/view/' + post.$id]">{{post.title}}</a></h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <div class="row border-end">
+                <div class="col-12 text-center">
+                    Rating
+                </div>
+                <div class="col-12 text-center">
+                    {{post.rating}}
+                </div>
+            </div>
+        </div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-12">
+                    Ingredients:
+                </div>
+                <div class="col-12 mb-1">
+                    <app-box [list]="this.ingredients" [border]="false" [fixedSize]="false"></app-box>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</p-card>

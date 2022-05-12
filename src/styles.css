@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@import "~primeng/resources/primeng.min.css";
+@import "~primeng/resources/themes/saga-orange/theme.css";
+@import "~primeicons/primeicons.css";
+body{
+    background-color: #f4fafe !important;
+}

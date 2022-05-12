@@ -1,0 +1,33 @@
+<p-carousel
+  [value]="steps"
+  [numVisible]="1"
+  [numScroll]="1"
+  [circular]="false"
+>
+  <ng-template pTemplate="header">
+    <h5>Recipe</h5>
+  </ng-template>
+  <ng-template let-step pTemplate="item">
+    <div class="product-item">
+      <div>
+        <div class="p-mb-3"></div>
+        <div>
+          <div *ngIf="step.numStep === -1">
+            <h4 class="p-mb-1">{{ step.title }}</h4>
+            <div *ngFor="let item of step.ingredients; let i = index">
+              {{ item }}
+            </div>
+          </div>
+          <div *ngIf="step.numStep === 0">
+            <h4 class="p-mb-1">{{ step.title }}</h4>
+            <p class="p-mt-0 p-mb-3">{{ step.text }}</p>
+          </div>
+          <div *ngIf="step.numStep > 0">
+            <h4 class="p-mb-1">Step {{ step.numStep }} - {{ step.title }}</h4>
+            <p class="p-mt-0 p-mb-3">{{ step.text }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>

@@ -1,0 +1,25 @@
+<div class="row mt-5 vh-100">
+    <div class="col-3 border-end">
+        ### Ingredient most used ###
+    </div>
+    <div class="col-6">
+        <div *ngIf="this.username!=null">
+
+
+            <div class="row mb-2 ">
+                <div class="col-12 text-end">
+                    <p-button label="Create Post" icon="pi pi-plus" iconPos="left" (onClick)="this.newPost()"></p-button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <app-post-list></app-post-list>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-3  border-start">
+        ### Recipe Ranking ###
+    </div>
+</div>

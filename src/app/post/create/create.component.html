@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-12">
+        <h4>Title</h4>
+    </div>
+</div>
+<div class="row border-bottom mb-2 pb-2">
+    <div class="col">
+        <input type="text" pInputText class="w-100" [(ngModel)]="title"/>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h4>Text</h4>
+    </div>
+</div>
+<div class="row border-bottom mb-2 pb-2">
+    <div class="col">
+        <p-editor [(ngModel)]="text" [style]="{'height':'320px'}"></p-editor>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <h4>Ingredients</h4>
+    </div>
+</div>
+<app-select></app-select>
+<div class="row">
+    <div class="col-12 d-flex justify-content-end">
+        <p-button label="Save" icon="pi pi-save" iconPos="left" (onClick)="save($event)"></p-button>
+    </div>
+</div>

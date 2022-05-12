@@ -1,0 +1,27 @@
+<div class="row border-bottom">
+    <div class="col-12">
+        <h4>{{post.title}}</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12" [innerHtml]="post.text">
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <app-box [list]="ingredients"></app-box>
+    </div>
+</div>
+<div *ngIf="!editorRecipeVisible">
+    <div class="row mb-2 ">
+        <div class="col-12 text-end">
+            <p-button label="Create Recipe" icon="pi pi-file" iconPos="left" (onClick)="this.newRecipe()"></p-button>
+        </div>
+    </div>
+</div>
+<div *ngIf="editorRecipeVisible">
+    <app-recipe-create [ingredients]="post.ingredients" [post]="post"></app-recipe-create>
+
+</div>
+
+<!-- List of Recipe -->
